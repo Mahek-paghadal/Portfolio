@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --display: 'Zilla Slab', serif;
+  --body: 'Zilla Slab', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(34, 211, 238, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(34, 211, 238, 0.45);
+  }
+}
+
+.typing-cursor {
+  display: inline;
+}
+
+.typing-caret {
+  display: inline-block;
+  margin-left: 2px;
+  width: 2px;
+  height: 0.9em;
+  background: #67e8f9;
+  vertical-align: -0.05em;
+  animation: caretBlink 0.9s steps(2) infinite;
+}
+
+@keyframes caretBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.name-glossy {
+  color: #62e6ef;
+  text-shadow: 0 0 14px rgba(64, 224, 231, 0.35);
+}
