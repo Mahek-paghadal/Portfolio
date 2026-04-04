@@ -4,28 +4,105 @@ const tags = ['All', 'Web', 'Mobile']
 
 const works = [
   {
-    title: 'Learning UI/UX Design',
+    title: 'SkillLink – ML Powered Marketplace',
     category: 'Web',
-    description: 'A focused UI/UX design sprint exploring layout systems, typography hierarchy, and interactive flow polish.',
-    techStack: ['Figma', 'Adobe XD', 'Illustrator'],
-    repo: 'https://github.com/your-username/uiux-designs',
-    features: ['Component library', 'Responsive layouts', 'Micro-interactions'],
+    description:
+      'A full-stack, ML-powered marketplace connecting students with hyperlocal micro-jobs using skill-based matching.',
+    techStack: ['React', 'Node.js', 'MongoDB', 'FastAPI', 'TF-IDF', 'JWT'],
+    repo: 'https://github.com/Mahek-paghadal/SkillLink',
+    features: [
+      'JWT auth with roles',
+      'TF-IDF recommendations',
+      'Ranking, badges, reviews',
+      'Client job workflows',
+      'Resume uploads',
+      'Real-time dashboards',
+    ],
+    image: 'images/skilllink.png',
   },
   {
-    title: 'Dashboard Web Experience',
-    category: 'Web',
-    description: 'A clean admin dashboard concept with data visualization, alerts, and actionable workflows.',
-    techStack: ['React', 'TypeScript', 'Tailwind CSS'],
-    repo: 'https://github.com/your-username/dashboard-web',
-    features: ['Analytics widgets', 'Role-based layout', 'Dark mode UI'],
-  },
-  {
-    title: 'Mobile App Showcase',
+    title: 'Depstar – Institute Application',
     category: 'Mobile',
-    description: 'A mobile product showcase focused on onboarding, navigation, and clear value communication.',
-    techStack: ['Flutter', 'Dart', 'Firebase'],
-    repo: 'https://github.com/your-username/mobile-showcase',
-    features: ['Smooth onboarding', 'Push notifications', 'Offline-ready screens'],
+    description:
+      'A centralized institute app that streamlines academic updates, communication, and student resources.',
+    techStack: ['Flutter', 'Supabase', 'REST APIs', 'PDF Viewer'],
+    repo: 'https://github.com/Mahek-paghadal/depstar',
+    features: [
+      'Announcements & events',
+      'Syllabus PDF viewer',
+      'Timetable & exam notices',
+      'Placement updates',
+      'College email login',
+      'Achievements & SOPs',
+    ],
+    image: 'images/depstar.png',
+  },
+  {
+    title: 'Guruseva Printers – Office Management System',
+    category: 'Mobile',
+    description:
+      'A mobile office management system replacing manual job tracking for a real client to improve workflow efficiency.',
+    techStack: ['Flutter', 'Nest.js', 'MongoDB', 'Swagger UI'],
+    repo: 'https://github.com/Mahek-paghadal/GurusevaPrinters',
+    features: [
+      'Role-based access',
+      'Task assignment & tracking',
+      'Secure approvals',
+      'Progress dashboards',
+      'Reduced delays',
+      'Better coordination',
+    ],
+    image: 'images/guruseva.png',
+  },
+  {
+    title: 'StockSage – Stock Prediction System',
+    category: 'Web',
+    description:
+      'An AI-powered stock analysis platform with real-time data, LSTM predictions, and sentiment insights.',
+    techStack: ['Next.js', 'Nest.js', 'MongoDB', 'Python', 'LSTM', 'FinBERT'],
+    repo: 'https://github.com/Mahek-paghadal/stock-prediction-system',
+    features: [
+      'Real-time market data',
+      'LSTM price prediction',
+      'FinBERT sentiment analysis',
+      'Personalized watchlists',
+      'Prediction backtracking',
+      'JWT auth',
+    ],
+    image: 'images/stocksage.png',
+  },
+  {
+    title: 'Care Companion – Voice-First Elder Support',
+    category: 'Mobile',
+    description:
+      'A voice-driven assistance app for elders with reminders, SOS alerts, mind games, news, and AI chat support.',
+    techStack: ['Flutter', 'Dart', 'Firebase', 'Voice TTS/STT', 'AI API'],
+    repo: 'https://github.com/Mahek-paghadal/CareCompanion',
+    features: [
+      'Voice-controlled tasks',
+      'Medicine & to-do reminders',
+      'Doctor appointment booking',
+      'Mind games for cognitive health',
+      'AI chatbot assistance',
+      'SOS emergency alerts',
+    ],
+    image: 'images/carecompanion.png',
+  },
+  {
+    title: 'RailEase – Train Travel Web Platform',
+    category: 'Web',
+    description:
+      'A modern train travel experience covering search, booking, seat selection, payments, and onboard services.',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Firebase Auth'],
+    repo: 'https://github.com/Mahek-paghadal/RailEase',
+    features: [
+      'Train search & booking',
+      'Interactive seat selection',
+      'Food ordering & entertainment',
+      'Route planning',
+      'Account authentication',
+    ],
+    image: 'images/railease.png',
   },
 ]
 
@@ -109,7 +186,7 @@ function RecentWorks() {
 
       <div className="relative z-10 w-full">
         <div className="flex flex-col gap-6">
-          <h2 className="text-[52px] font-[var(--display)] font-bold text-white max-[900px]:text-[34px]">
+          <h2 className="text-[44px] font-[var(--display)] font-bold text-white max-[900px]:text-[28px]">
             My <span className="text-cyan-400">works</span>
           </h2>
 
@@ -143,24 +220,22 @@ function RecentWorks() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,196,200,0.12),transparent_60%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
               <div className="relative transition duration-300 group-hover:blur-[2px]">
-                <div className="relative flex min-h-[210px] items-center justify-center rounded-2xl bg-[#1a222b]">
-                  <div className="absolute inset-0 opacity-60">
-                    <div className="absolute left-6 top-6 h-10 w-10 rounded-full border border-cyan-400/40" />
-                    <div className="absolute right-6 top-10 h-2 w-2 rounded-full bg-cyan-300/70" />
-                    <div className="absolute bottom-6 left-8 h-3 w-3 rounded-full bg-white/20" />
-                  </div>
-                  <div className="relative text-center">
-                    <div className="mx-auto mb-3 h-16 w-24 rounded-2xl bg-gradient-to-br from-cyan-400/60 to-cyan-200/20" />
-                    <span className="text-xs uppercase tracking-[0.35em] text-cyan-200/70">
-                      {work.category}
-                    </span>
-                  </div>
+                <div className="relative flex min-h-[210px] items-center justify-center overflow-hidden rounded-2xl bg-[#1a222b]">
+                  <img
+                    src={`${import.meta.env.BASE_URL}${work.image}`}
+                    alt={work.title}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent" />
+                  <span className="absolute bottom-4 left-4 text-xs uppercase tracking-[0.35em] text-cyan-200/80">
+                    {work.category}
+                  </span>
                 </div>
 
                 <div className="relative mt-6">
                   <h3 className="text-lg font-semibold text-white">{work.title}</h3>
                   <p className="mt-2 text-sm text-slate-300">
-                    Crafted with focused flows, crisp visuals, and smooth interactions tailored for impact.
+                    {work.description}
                   </p>
                 </div>
               </div>

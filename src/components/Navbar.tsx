@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
+const sections = ['home', 'skills', 'works', 'contact']
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const menuRef = useRef<HTMLDivElement | null>(null)
-  const sections = ['home', 'skills', 'works', 'contact', 'footer']
 
   useEffect(() => {
     if (!menuOpen) {
@@ -45,24 +46,19 @@ function Navbar() {
 
         if (visibleEntries.length > 0) {
           const topSection = visibleEntries[0].target.id
-          if (topSection === 'footer') {
-            setActiveSection('contact')
-            return
-          }
-
-          setActiveSection(topSection === 'contact' ? 'works' : topSection)
+          setActiveSection(topSection)
         }
       },
       {
-        rootMargin: '-40% 0px -40% 0px',
-        threshold: [0.2, 0.4, 0.6],
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: [0.05, 0.2, 0.4, 0.6],
       }
     )
 
     sectionElements.forEach((element) => observer.observe(element))
 
     return () => observer.disconnect()
-  }, [sections])
+  }, [])
 
   const linkClass = (sectionId: string) =>
     `border-b-2 pb-1 transition-colors ${
@@ -103,7 +99,7 @@ function Navbar() {
             Work
           </a>
           <a
-            href="#footer"
+            href="#contact"
             className={linkClass('contact')}
             aria-current={activeSection === 'contact' ? 'page' : undefined}
           >
@@ -158,7 +154,7 @@ function Navbar() {
           Work
         </a>
         <a
-          href="#footer"
+          href="#contact"
           className={linkClass('contact')}
           aria-current={activeSection === 'contact' ? 'page' : undefined}
           onClick={() => setMenuOpen(false)}

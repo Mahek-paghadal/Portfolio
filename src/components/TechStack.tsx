@@ -3,34 +3,45 @@ import { useState } from 'react'
 const skillSections = [
   {
     title: 'Frontend',
-    items: ['HTML, CSS, JS', 'React', 'React Native'],
+    items: ['HTML, CSS', 'JavaScript', 'Flutter'],
   },
   {
     title: 'Backend',
-    items: ['Python', 'Supabase', 'Nest.js'],
+    items: ['Java', 'Node.js', 'NestJS'],
   },
   {
-    title: 'Tools',
-    items: ['GitHub', 'Postman', 'Swagger UI'],
+    title: 'Databases',
+    items: ['MongoDB', 'PostgreSQL', 'Supabase'],
+  },
+  {
+    title: 'Tools & Platforms',
+    items: ['GitHub', 'Swagger UI', 'Postman'],
+  },
+  {
+    title: 'Soft Skills',
+    items: ['Problem Solving', 'Team Collaboration', 'Adaptability'],
   },
 ]
 
 function TechStack() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [direction, setDirection] = useState<'up' | 'down'>('down')
   const activeSection = skillSections[activeIndex]
 
   const goNext = () => {
+    setDirection('down')
     setActiveIndex((index) => (index + 1) % skillSections.length)
   }
 
   const goPrev = () => {
+    setDirection('up')
     setActiveIndex((index) => (index - 1 + skillSections.length) % skillSections.length)
   }
 
   return (
     <section
       id="skills"
-      className="relative w-full min-h-[100svh] overflow-hidden bg-[#212a34] px-16 py-24 max-[900px]:min-h-0 max-[900px]:px-6 max-[900px]:py-16"
+      className="relative w-full min-h-[85svh] overflow-hidden bg-[#212a34] px-16 py-20 max-[900px]:min-h-0 max-[900px]:px-6 max-[900px]:py-12"
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,196,200,0.12),transparent_65%)]" />
@@ -51,7 +62,7 @@ function TechStack() {
             className="pointer-events-none absolute left-114 bottom-4 w-[150px] opacity-60"
           />
 
-          <h2 className="text-[52px] font-[var(--display)] font-bold text-white max-[900px]:text-[34px]">
+          <h2 className="text-[40px] font-[var(--display)] font-bold text-white max-[900px]:text-[28px]">
             Skills
           </h2>
 
@@ -59,7 +70,12 @@ function TechStack() {
             <p className="text-[30px] font-semibold text-cyan-300">{activeSection.title}</p>
 
             <div className="mt-6 flex items-start gap-6">
-              <div className="w-full max-w-[620px] flex-1 space-y-6">
+              <div
+                key={activeIndex}
+                className={`w-full max-w-[620px] flex-1 space-y-6 ${
+                  direction === 'down' ? 'animate-skill-down' : 'animate-skill-up'
+                }`}
+              >
                 {activeSection.items.map((label) => (
                   <div
                     key={label}
@@ -71,7 +87,7 @@ function TechStack() {
                   </div>
                 ))}
               </div>
-              <div className="flex shrink-0 flex-col gap-4 pt-2">
+              <div className="flex shrink-0 flex-col gap-4 self-center">
                 <button
                   type="button"
                   onClick={goPrev}
@@ -125,6 +141,18 @@ function TechStack() {
           /> */}
         </div>
       </div>
+      <style>{`
+        @keyframes skillDown {
+          from { opacity: 0; transform: translateY(12px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes skillUp {
+          from { opacity: 0; transform: translateY(-12px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-skill-down { animation: skillDown 0.6s ease-out both; }
+        .animate-skill-up { animation: skillUp 0.6s ease-out both; }
+      `}</style>
     </section>
   )
 }

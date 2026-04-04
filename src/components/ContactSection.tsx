@@ -2,7 +2,7 @@ function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-[#212a34] px-12 py-20 max-[900px]:px-6 max-[900px]:py-16"
+      className="relative w-full overflow-hidden bg-[#212a34] px-12 py-16 max-[900px]:px-6 max-[900px]:py-12"
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,196,200,0.1),transparent_65%)]" />
@@ -10,11 +10,11 @@ function ContactSection() {
 
       <div className="relative z-10 grid w-full grid-cols-[1.05fr_1fr] items-center gap-8 max-[900px]:grid-cols-1">
         <div className="relative z-10">
-          <h2 className="text-[52px] font-[var(--display)] font-bold text-white max-[900px]:text-[34px]">
+          <h2 className="text-[44px] font-[var(--display)] font-bold text-white max-[900px]:text-[28px]">
             Certifications <span className="text-cyan-400">and achievements</span>
           </h2>
           <p className="mt-4 w-full text-[20px] leading-8 text-slate-300">
-            Milestones that showcase continuous learning, delivery, and impact across backend systems and mobile experiences.
+            Milestones that showcase continuous learning, delivery, and impact.
           </p>
 
           <div className="relative mt-10 flex items-center gap-8 max-[900px]:justify-center max-[900px]:mb-0 max-[900px]:z-0">
@@ -68,51 +68,37 @@ function ContactSection() {
               </div>
 
               <div className="mt-6 grid gap-4">
-                <div className="rounded-2xl border border-white/10 bg-[#1b222b] p-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-lg font-semibold text-white">Flutter Specialist</p>
-                      <p className="mt-1 text-base text-slate-400">Mobile Architecture · 2024</p>
-                    </div>
-                    <span className="rounded-full bg-cyan-500/15 px-3 py-1 text-base font-semibold text-cyan-200">
-                      Verified
-                    </span>
-                  </div>
-                </div>
+                <a
+                  href="https://drive.google.com/file/d/1fq9t9IGwhD9QnekbvnaBmYrzhff8opwh/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-2xl border border-white/10 bg-[#1b222b] p-4 transition hover:border-cyan-300/60"
+                >
+                  <p className="text-lg font-semibold text-white">NPTEL Database Management Systems</p>
+                  <p className="mt-1 text-base text-slate-400">Certified</p>
+                </a>
 
-                <div className="rounded-2xl border border-white/10 bg-[#1b222b] p-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-lg font-semibold text-white">Backend Performance</p>
-                      <p className="mt-1 text-base text-slate-400">Scaling Systems · 2023</p>
-                    </div>
-                    <span className="rounded-full bg-white/10 px-3 py-1 text-base font-semibold text-slate-200">
-                      Top 5%
-                    </span>
-                  </div>
-                </div>
+                <a
+                  href="https://drive.google.com/file/d/1fsa4v6HOwbEKUxw0JsAmfBGDTJ4sGiCd/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-2xl border border-white/10 bg-[#1b222b] p-4 transition hover:border-cyan-300/60"
+                >
+                  <p className="text-lg font-semibold text-white">Amazon Future Engineer</p>
+                  <p className="mt-1 text-base text-slate-400">Python &amp; AI Bootcamp</p>
+                </a>
 
-                <div className="rounded-2xl border border-white/10 bg-[#1b222b] p-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-lg font-semibold text-white">Product Delivery Award</p>
-                      <p className="mt-1 text-base text-slate-400">Client Impact · 2022</p>
-                    </div>
-                    <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-base font-semibold text-emerald-200">
-                      Winner
-                    </span>
-                  </div>
-                </div>
+                <a
+                  href="https://drive.google.com/file/d/1g7Lb-aAI228uFtyA8T62ogFudDs8vWw0/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-2xl border border-white/10 bg-[#1b222b] p-4 transition hover:border-cyan-300/60"
+                >
+                  <p className="text-lg font-semibold text-white">Coding Relay Race</p>
+                  <p className="mt-1 text-base text-slate-400">6th Place</p>
+                </a>
               </div>
 
-              <div className="mt-6 rounded-2xl bg-[#11161c] p-4">
-                <p className="text-base uppercase tracking-[0.25em] text-slate-400">Highlights</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-cyan-400/30 px-3 py-1 text-base text-cyan-200">API Security</span>
-                  <span className="rounded-full border border-cyan-400/30 px-3 py-1 text-base text-cyan-200">Flutter UI Systems</span>
-                  <span className="rounded-full border border-cyan-400/30 px-3 py-1 text-base text-cyan-200">Cloud Observability</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -27,7 +27,7 @@ function App() {
             <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.04),rgba(255,255,255,0.01))]" />
             <div className="absolute -left-40 top-[-200px] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(0,196,200,0.12),transparent_70%)]" />
           </div>
-          <div className="relative z-10 pt-[90px] max-[900px]:pt-[64px]">
+          <div className="relative z-10 pt-[90px] max-[900px]:pt-[32px]">
             <Navbar />
             <Hero />
             <TechStack />
