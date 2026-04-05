@@ -63,7 +63,7 @@ function Footer() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,196,200,0.14),transparent_65%)]" />
       </div>
 
-      <div className="relative z-10 grid w-full grid-cols-3 gap-12 max-[900px]:grid-cols-1 max-[900px]:justify-items-center max-[900px]:text-center">
+      <div className="relative z-10 grid w-full grid-cols-4 gap-12 max-[1100px]:grid-cols-2 max-[900px]:grid-cols-1 max-[900px]:justify-items-center max-[900px]:text-center">
         <div>
           <h3 className="text-[26px] font-semibold text-cyan-300">Quick Links</h3>
           <ul className="mt-7 space-y-4 text-[18px] text-slate-300 max-[900px]:mx-auto">
@@ -113,6 +113,22 @@ function Footer() {
                 </svg>
               </a>
             ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-[26px] font-semibold text-cyan-300">Feedback</h3>
+          <div className="mt-6 rounded-2xl border border-cyan-400/30 bg-[#1b222b] p-4 text-slate-200">
+            <p className="text-sm uppercase tracking-[0.2em] text-cyan-200/70">Help Me Improve</p>
+            <p className="mt-2 text-base">
+              Please give me suggestions or ratings so I can improve my portfolio.
+            </p>
+            <a
+              href="#feedback"
+              className="mt-3 inline-flex items-center gap-2 rounded-full bg-cyan-500/20 px-4 py-2 text-sm font-semibold text-cyan-200 transition hover:bg-cyan-500/30"
+            >
+              Give feedback
+            </a>
           </div>
         </div>
       </div>

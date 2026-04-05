@@ -47,7 +47,7 @@ function RatingPopup() {
       if (hasTriggered) return
       if (window.scrollY < 180) return
       hasTriggered = true
-      const delay = 1 * 60 * 1000 + Math.floor(Math.random() * 60 * 1000)
+      const delay = 60 * 1000
       timerId = window.setTimeout(() => {
         setIsOpen(true)
         setPromptState()
