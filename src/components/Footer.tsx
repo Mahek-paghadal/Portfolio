@@ -2,7 +2,6 @@ const quickLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Skills', href: '#skills' },
   { label: 'Works', href: '#works' },
-  { label: 'Feedback', href: '#feedback' },
 ]
 
 const contactItems = [
