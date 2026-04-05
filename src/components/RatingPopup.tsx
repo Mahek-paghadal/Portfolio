@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 
 const LOCAL_KEY = 'portfolio_rating_prompt'
@@ -29,6 +29,7 @@ function RatingPopup() {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const timerRef = useRef<number | undefined>(undefined)
 
   const canShow = useMemo(() => {
     const { shownAt, submitted } = getPromptState()
@@ -41,14 +42,13 @@ function RatingPopup() {
     if (!canShow) return
 
     let hasTriggered = false
-    let timerId: number | undefined
 
     const handleScroll = () => {
       if (hasTriggered) return
       if (window.scrollY < 180) return
       hasTriggered = true
       const delay = 60 * 1000
-      timerId = window.setTimeout(() => {
+      timerRef.current = window.setTimeout(() => {
         setIsOpen(true)
         setPromptState()
       }, delay)
@@ -58,7 +58,7 @@ function RatingPopup() {
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      if (timerId) window.clearTimeout(timerId)
+      if (timerRef.current) window.clearTimeout(timerRef.current)
     }
   }, [canShow])
 
@@ -93,6 +93,10 @@ function RatingPopup() {
 
     setSubmitted(true)
     setPromptState(true)
+    if (timerRef.current) {
+      window.clearTimeout(timerRef.current)
+      timerRef.current = undefined
+    }
     window.setTimeout(() => {
       setIsOpen(false)
       if (window.location.hash === '#feedback') {
