@@ -49,7 +49,7 @@ export default function Hero() {
           src={`${import.meta.env.BASE_URL}images/Vector%20187.png`}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute -left-8 top-10 w-[120px] opacity-60 max-[900px]:hidden"
+          className="pointer-events-none absolute -left-8 top-18 w-[120px] opacity-60 max-[900px]:hidden"
         />
         <h1 className="name-glossy whitespace-nowrap text-[clamp(34px,5vw,64px)] leading-[0.95] tracking-[2px] font-[var(--display)] font-bold max-[900px]:mt-4 max-[900px]:text-[clamp(22px,6vw,36px)] max-[900px]:leading-tight">
           <span className="typing-cursor">

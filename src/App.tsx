@@ -8,6 +8,7 @@ import RecentWorks from './components/RecentWorks';
 import TechStack from './components/TechStack';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
+import RatingPopup from './components/RatingPopup';
 
 
 function App() {
@@ -18,11 +19,18 @@ function App() {
       document.body.style.overflow = '';
     };
   }, [loading]);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search)
+    }
+  }, [])
   return (
     <div className="relative min-h-[100svh] overflow-x-hidden bg-[#1f252d] text-slate-200">
       {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
       {!loading && (
         <>
+          <RatingPopup />
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.04),rgba(255,255,255,0.01))]" />
             <div className="absolute -left-40 top-[-200px] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(0,196,200,0.12),transparent_70%)]" />

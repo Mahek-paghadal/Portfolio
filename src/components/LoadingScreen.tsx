@@ -11,7 +11,7 @@ const LOGS = [
   '[CACHE]    Warming up cache layer... OK',
   '[API]      Mounting REST endpoints... OK',
   '[UI]       Hydrating component tree... OK',
-  '[READY]    All systems operational. Welcome, Mahek.',
+  "[READY]    All systems operational. Welcome to Mahek's portfolio",
 ];
 
 const THEME = {

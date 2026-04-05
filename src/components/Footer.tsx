@@ -2,6 +2,7 @@ const quickLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Skills', href: '#skills' },
   { label: 'Works', href: '#works' },
+  { label: 'Feedback', href: '#feedback' },
 ]
 
 const contactItems = [
@@ -117,7 +118,7 @@ function Footer() {
       </div>
 
       <div className="relative z-10 mt-14 border-t border-white/10 pt-7 text-center text-[15px] text-slate-400">
-        © 2025 Mahek Paghadal. All rights reserved.
+        © 2026 Mahek Paghadal. All rights reserved.
       </div>
     </footer>
   )

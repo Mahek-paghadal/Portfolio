@@ -99,7 +99,7 @@ function Navbar() {
             Work
           </a>
           <a
-            href="#contact"
+            href="#footer"
             className={linkClass('contact')}
             aria-current={activeSection === 'contact' ? 'page' : undefined}
           >
@@ -154,7 +154,7 @@ function Navbar() {
           Work
         </a>
         <a
-          href="#contact"
+          href="#footer"
           className={linkClass('contact')}
           aria-current={activeSection === 'contact' ? 'page' : undefined}
           onClick={() => setMenuOpen(false)}

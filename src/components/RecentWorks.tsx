@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 
-const tags = ['All', 'Web', 'Mobile']
+const tags = ['All', 'Web', 'Mobile', 'Backend']
 
 const works = [
   {
@@ -104,7 +104,52 @@ const works = [
     ],
     image: 'images/railease.png',
   },
+  {
+    title: 'NimbusCore API Suite',
+    category: 'Backend',
+    description: 'A scalable REST API suite with modular services and role-based access control.',
+    techStack: ['Node.js', 'NestJS', 'PostgreSQL', 'JWT'],
+    repo: '#',
+    features: ['RBAC & JWT', 'Modular services', 'OpenAPI docs', 'Audit logging'],
+    image: 'images/skilllink.png',
+  },
+  {
+    title: 'FlowTrack Job Queue',
+    category: 'Backend',
+    description: 'A background processing system with retries, metrics, and failure handling.',
+    techStack: ['Node.js', 'Redis', 'BullMQ'],
+    repo: '#',
+    features: ['Retry policies', 'Dead letter queue', 'Metrics dashboard', 'Worker scaling'],
+    image: 'images/stocksage.png',
+  },
+  {
+    title: 'AuthShield Identity Service',
+    category: 'Backend',
+    description: 'Centralized authentication service with sessions, tokens, and device security.',
+    techStack: ['NestJS', 'MongoDB', 'JWT', 'OAuth'],
+    repo: '#',
+    features: ['Token rotation', 'Session management', 'Password policies', 'Device tracking'],
+    image: 'images/railease.png',
+  },
+  {
+    title: 'DataPulse Reporting Engine',
+    category: 'Backend',
+    description: 'Automated reporting engine for analytics exports and scheduled insights.',
+    techStack: ['Node.js', 'PostgreSQL', 'Cron'],
+    repo: '#',
+    features: ['Scheduled exports', 'CSV/JSON outputs', 'Alerting rules', 'Multi-tenant'],
+    image: 'images/depstar.png',
+  },
 ]
+
+const shuffleWorks = <T,>(items: T[]) => {
+  const result = [...items]
+  for (let i = result.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[result[i], result[j]] = [result[j], result[i]]
+  }
+  return result
+}
 
 function RecentWorks() {
   const [activeTag, setActiveTag] = useState('All')
@@ -115,11 +160,8 @@ function RecentWorks() {
   const sectionRef = useRef<HTMLElement | null>(null)
 
   const filteredWorks = useMemo(() => {
-    if (activeTag === 'All') {
-      return works
-    }
-
-    return works.filter((work) => work.category === activeTag)
+    const list = activeTag === 'All' ? works : works.filter((work) => work.category === activeTag)
+    return shuffleWorks(list)
   }, [activeTag])
 
   useEffect(() => {
