@@ -4,6 +4,7 @@ const tags = ['All', 'Web', 'Mobile', 'Backend']
 
 const works = [
   {
+    order: 1,
     title: 'Distributed Job Queue System — Async Processing Engine',
     category: 'Backend',
     description:
@@ -21,6 +22,7 @@ const works = [
     image: 'images/jobqueuesystem.png',
   },
   {
+    order: 2,
     title: 'Depstar – Institute Application',
     category: 'Mobile',
     description:
@@ -38,6 +40,7 @@ const works = [
     image: 'images/depstar.png',
   },
   {
+    order: 3,
     title: 'SkillLink – ML Powered Marketplace',
     category: 'Web',
     description:
@@ -55,6 +58,7 @@ const works = [
     image: 'images/skilllink.png',
   },
   {
+    order: 4,
     title: 'Guruseva Printers – Office Management System',
     category: 'Mobile',
     description:
@@ -72,6 +76,7 @@ const works = [
     image: 'images/guruseva.png',
   },
   {
+    order: 5,
     title: 'StockSage – Stock Prediction System',
     category: 'Web',
     description:
@@ -89,6 +94,7 @@ const works = [
     image: 'images/stocksage.png',
   },
   {
+    order: 6,
     title: 'Care Companion – Voice-First Elder Support',
     category: 'Mobile',
     description:
@@ -106,6 +112,7 @@ const works = [
     image: 'images/carecompanion.png',
   },
   {
+    order: 7,
     title: 'RailEase – Train Travel Web Platform',
     category: 'Web',
     description:
@@ -132,7 +139,8 @@ function RecentWorks() {
   const sectionRef = useRef<HTMLElement | null>(null)
 
   const filteredWorks = useMemo(() => {
-    return activeTag === 'All' ? works : works.filter((work) => work.category === activeTag)
+    const list = activeTag === 'All' ? works : works.filter((work) => work.category === activeTag)
+    return [...list].sort((a, b) => a.order - b.order)
   }, [activeTag])
 
   useEffect(() => {
