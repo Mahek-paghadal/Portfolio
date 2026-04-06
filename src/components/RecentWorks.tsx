@@ -4,21 +4,21 @@ const tags = ['All', 'Web', 'Mobile', 'Backend']
 
 const works = [
   {
-    title: 'SkillLink – ML Powered Marketplace',
-    category: 'Web',
+    title: 'Distributed Job Queue System — Async Processing Engine',
+    category: 'Backend',
     description:
-      'A full-stack, ML-powered marketplace connecting students with hyperlocal micro-jobs using skill-based matching.',
-    techStack: ['React', 'Node.js', 'MongoDB', 'FastAPI', 'TF-IDF', 'JWT'],
-    repo: 'https://github.com/Mahek-paghadal/SkillLink',
+      'A production-grade background job processing system for async tasks, retries, and real-time notifications without managed services.',
+    techStack: ['Node.js', 'Express', 'Redis', 'BullMQ', 'PostgreSQL', 'Swagger UI'],
+    repo: 'https://github.com/Mahek-paghadal/JobQueueSystem',
     features: [
-      'JWT auth with roles',
-      'TF-IDF recommendations',
-      'Ranking, badges, reviews',
-      'Client job workflows',
-      'Resume uploads',
-      'Real-time dashboards',
+      'Async job submission (202)',
+      'Priority queues with workers',
+      'Exponential backoff retries',
+      'Dead Letter Queue replay',
+      'Webhook callbacks',
+      'Live metrics API',
     ],
-    image: 'images/skilllink.png',
+    image: 'images/jobqueuesystem.png',
   },
   {
     title: 'Depstar – Institute Application',
@@ -36,6 +36,23 @@ const works = [
       'Achievements & SOPs',
     ],
     image: 'images/depstar.png',
+  },
+  {
+    title: 'SkillLink – ML Powered Marketplace',
+    category: 'Web',
+    description:
+      'A full-stack, ML-powered marketplace connecting students with hyperlocal micro-jobs using skill-based matching.',
+    techStack: ['React', 'Node.js', 'MongoDB', 'FastAPI', 'TF-IDF', 'JWT'],
+    repo: 'https://github.com/Mahek-paghadal/SkillLink',
+    features: [
+      'JWT auth with roles',
+      'TF-IDF recommendations',
+      'Ranking, badges, reviews',
+      'Client job workflows',
+      'Resume uploads',
+      'Real-time dashboards',
+    ],
+    image: 'images/skilllink.png',
   },
   {
     title: 'Guruseva Printers – Office Management System',
@@ -104,33 +121,7 @@ const works = [
     ],
     image: 'images/railease.png',
   },
-  {
-    title: 'Distributed Job Queue System — Async Processing Engine',
-    category: 'Backend',
-    description:
-      'A production-grade background job processing system for async tasks, retries, and real-time notifications without managed services.',
-    techStack: ['Node.js', 'Express', 'Redis', 'BullMQ', 'PostgreSQL', 'Swagger UI'],
-    repo: 'https://github.com/Mahek-paghadal/JobQueueSystem',
-    features: [
-      'Async job submission (202)',
-      'Priority queues with workers',
-      'Exponential backoff retries',
-      'Dead Letter Queue replay',
-      'Webhook callbacks',
-      'Live metrics API',
-    ],
-    image: 'images/jobqueuesystem.png',
-  },
 ]
-
-const shuffleWorks = <T,>(items: T[]) => {
-  const result = [...items]
-  for (let i = result.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[result[i], result[j]] = [result[j], result[i]]
-  }
-  return result
-}
 
 function RecentWorks() {
   const [activeTag, setActiveTag] = useState('All')
@@ -141,8 +132,7 @@ function RecentWorks() {
   const sectionRef = useRef<HTMLElement | null>(null)
 
   const filteredWorks = useMemo(() => {
-    const list = activeTag === 'All' ? works : works.filter((work) => work.category === activeTag)
-    return shuffleWorks(list)
+    return activeTag === 'All' ? works : works.filter((work) => work.category === activeTag)
   }, [activeTag])
 
   useEffect(() => {
